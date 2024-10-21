@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+@font-face {
+    font-family: 'Digital';
+    src: url(../assets/fonts/digital-7.ttf);
+}
+
+@font-face {
+    font-family: 'Michroma';
+    src: url(../assets/fonts/Michroma-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Noto Sans Math';
+    src: url(../assets/fonts/NotoSansMath-Regular.ttf);
+}
+
+body {
+    background-color: #E0DCDC;
+}
+
+.logo {
+    margin-top: 33px;
+    margin-left: 25px;
+}
+
+.calculator {
+    width: 518px;
+    min-width: 380px;
+    min-height: 669px;
+    height: 781px;
+    background-color: #000;
+    margin: 90px 0 0 175px;
+    border-radius: 13px;
+    border: none;
+}
+
+.pad-right20 {
+    margin-right: 20px;
+}
+
+.button-color-red {
+    color: #805A30;
+}
+
+.border {
+    border: solid 5px #303030;
+}
+
+.screen {
+    width: 468px;
+    height: 138px;
+    background-color: #8B9482;
+    margin: 42px 25px 37px 25px;
+    border-radius: 7px;
+
+}
+
+.screen-text {
+    color: #332E2D;
+    font-family: 'Digital';
+    font-size: 63px;
+    line-height: 246%;
+    text-align: right;
+    margin-right: 15px;
+    transform: scaleY(1.9);
+
+}
+
+.middle-plate {
+    background-color: #363538;
+    display: flex;
+    margin-right: 15px;
+    margin-left: 15px;
+    flex-direction: row-reverse;
+}
+
+
+.button-plate {
+    margin: 15px;
+    margin-top: 0;
+    height: 418px;
+    background-color: #BCB6AE;
+    color: #FDFBFC;
+    border-radius: 0 0 12px 12px;
+}
+
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(5, 19%);
+    gap: 15px 12px;
+    margin-left: 22px;
+    margin-right: 22px;
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    justify-items: center;
+}
+
+.button {
+    width: 65px;
+    height: 65px;
+    background-color: #343132;
+    box-sizing: border-box;
+    border-radius: 15px;
+    font-size: 48px;
+    line-height: 140%;
+    font-family: 'Noto Sans Math';
+    text-align: center;
+}
+
+.wide-button {
+    width: 75px;
+    height: 46px;
+    font-family: 'Michroma';
+    font-size: 32px;
+    line-height: 112%;
+}
+
+.memory-button {
+    width: 64px;
+    height: 46px;
+    font-size: 24px;
+}
+
+.grey-button {
+    background-color: #55524F;
+}
+
+.black-text {
+    color: #332E2D;
+    font-size: 24px;
+}
+
+.wider-button {
+    width: 85px;
+    margin-right: 25px;
+}
+.margin-top {
+    margin-top: 7px;
+}
+.margin-bottom {
+    margin-bottom: 12px;
+}
+.grid-span{
+    grid-row: span 2;
+    width: 74px;
+    height: 148px;
+    line-height: 250%;
+}
+@media screen and (max-width: 500px) {
+    .calculator {
+        margin: auto;
+        width: 100%;
+    }
+
+    .screen {
+        width: 100%;
+        margin: auto;
+        margin-top: 40px;
+    }
+
+    .middle-plate {
+        width: 100%;
+        margin: auto;
+    }
+
+    .button-plate {
+        width: 100%;
+        margin: auto;
+        border-radius: 0;
+        height: 390px;
+    }
+
+    .button-container {
+        gap: 6px;
+        justify-items: stretch;
+    }
+    .wider-button {
+        width: 65px;
+    }
+    .grid-span{
+        width: 65px;
+        height: 135px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .calculator {
+        width: 100%;
+        margin: auto;
+        height: auto;
+        border-radius: 0;
+    }
+    .button-plate{
+        height: 350px;
+    }
+
+
+    .middle-plate {
+        width: 100%;
+    }
+
+    .button {
+        width: 55px;
+        height: 55px;
+        font-size: 42px;
+    }
+
+    .wide-button {
+        width: 75px;
+        height: 46px;
+        line-height: 68%;
+    }
+
+    .memory-button {
+        width: 64px;
+        height: 46px;
+        font-size: 24px;
+    }
+
+    .grey-button {
+        background-color: #55524F;
+    }
+
+    .black-text {
+        color: #332E2D;
+        font-size: 24px;
+    }
+
+    .wider-button {
+        width: 55px;
+        margin-right: 25px;
+    }
+
+    .wide-button {
+        font-size: 24px;
+        line-height: 125%;
+    }
+
+    .button-plate svg {
+        transform: scale(0.75);
+        position: relative;
+        right: 20%;
+        bottom: 20%
+    }
+    .grid-span{
+        height: 115px;
+    }
+}

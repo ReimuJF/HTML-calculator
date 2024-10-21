@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>HTML Calculator</title>
+    <script defer src="./scripts/script.js"></script>
+</head>
+
+<body>
+
+    <div class="calculator">
+        <svg class="logo" width="95" height="26" viewBox="0 0 95 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M17.5742 7.57366L15.6 7.92392C14.995 4.61238 14.4537 2.09688 11.4287 2.09688C6.36589 2.09688 5.82458 9.03839 5.82458 12.3818C5.82458 21.0427 9.00876 23.1761 11.3651 23.1761C14.0079 23.1761 15.5363 21.0109 16.3005 18.3362L18.211 18.782C16.9055 24.1951 13.18 25.3095 10.4416 25.3095C2.32198 25.3095 0.570687 18.782 0.570687 12.7639C0.570687 4.96264 4.13697 0.441105 11.174 0.441105C13.0845 0.441105 14.9632 0.823207 16.7145 1.55557C16.9055 3.40239 17.1921 5.47211 17.5742 7.57366ZM33.4284 21.2338L32.4095 17.6675H25.4998L24.6719 20.8517C24.4809 21.5522 24.3854 22.0935 24.3854 22.4438C24.3854 23.1443 24.7993 23.3035 25.8819 23.3035V24.8319H20.3414V23.3035C21.2967 23.3035 21.7743 22.9532 22.2201 21.4885L28.5566 0.441105H31.709L38.5231 21.0427C39.1599 22.9532 39.542 23.3035 40.5928 23.3035V24.8319H32.0911V23.3035C33.2692 23.3035 33.6832 23.0488 33.6832 22.4119C33.6832 22.1254 33.5876 21.7114 33.4284 21.2338ZM26.1048 15.8207H31.8363L28.9069 6.17263H28.7795L26.1048 15.8207ZM42.4461 18.8138L44.4521 18.3362C45.4392 22.4119 46.904 23.4627 49.2284 23.4627C51.1389 23.4627 52.8265 22.1572 52.8265 19.7691C52.8265 17.5401 51.8076 16.5212 48.4642 14.1331C44.7387 11.4902 42.8919 10.1528 42.8919 6.55473C42.8919 4.00738 44.675 0.441105 50.6294 0.441105C52.731 0.441105 54.546 0.823207 55.8515 1.36452C55.947 2.60635 56.1699 4.48501 56.5202 6.55473L54.546 6.87315C53.8773 3.37055 53.1131 2.28793 50.5976 2.28793C48.496 2.28793 47.3816 3.59344 47.3816 5.28106C47.3816 7.2234 48.5916 8.27418 51.4573 10.3121C55.6286 13.2733 57.5391 14.6425 57.5391 18.368C57.5391 22.3164 54.3868 25.3095 49.101 25.3095C47.0632 25.3095 44.9935 24.8956 43.3695 24.3224C43.1785 22.189 42.8282 20.4059 42.4461 18.8138ZM60.187 24.8319V23.3035C62.6706 23.3035 62.8935 22.9214 62.8935 20.5651V5.18553C62.8935 2.7974 62.6706 2.44714 60.187 2.44714V0.88689H70.6311V2.44714C68.1474 2.44714 67.9245 2.7974 67.9245 5.18553V20.5651C67.9245 22.9214 68.1474 23.3035 70.6311 23.3035V24.8319H60.187ZM83.9009 25.3095C81.3217 25.3095 78.5196 24.7682 76.4499 22.4756C74.6986 20.5651 73.5523 17.5083 73.5523 12.8594C73.5523 7.15972 75.4628 0.441105 83.9009 0.441105C93.0713 0.441105 94.3131 8.2105 94.3131 12.8594C94.3131 17.5083 93.1668 20.5651 91.4155 22.4756C89.6006 24.4816 87.0851 25.3095 83.9009 25.3095ZM83.9009 2.09688C79.3475 2.09688 78.7425 7.8284 78.7425 12.8594C78.7425 17.572 79.4112 23.6219 83.869 23.6219C88.4542 23.6219 89.0592 17.5083 89.0592 12.8594C89.0592 7.86024 88.4861 2.09688 83.9009 2.09688Z"
+                fill="white" />
+        </svg>
+
+        <div class="screen">
+            <p class="screen-text">0</p>
+        </div>
+        <div class="middle-plate">
+            <div class="button grey-button wide-button pad-right20 button-color-red border margin-top margin-bottom">C</div>
+        </div>
+        <div class="button-plate">
+            <div class="button-container">
+                <div class="button memory-button grey-button border black-text margin-bottom">M+</div>
+                <div class="button memory-button grey-button border black-text">M-</div>
+                <div class="button memory-button grey-button border black-text">MR</div>
+                <div class="button memory-button grey-button border black-text">MC</div>
+                <div class="button wide-button grey-button border">CE</div>
+                <div class="button"><span>7</span></div>
+                <div class="button"><span>8</span></div>
+                <div class="button"><span>9</span></div>
+                <div class="button grey-button border"><span>%</span></div>
+                <div class="button grey-button border"><span><svg width="60" height="59" viewBox="0 0 60 59" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M36.2006 11.5963L35.7342 12.7794L24.2469 41.7496L18.6497 30.6452L18.1255 29.6316H11.3622V33.2387H15.7933L22.5566 46.6534L23.0808 47.667H25.8794L26.3459 46.4839L38.7641 15.2033H48.6768V11.5963H36.2006Z"
+                                fill="#E5DEDB" />
+                        </svg>
+                    </span></div>
+                <div class="button"><span>4</span></div>
+                <div class="button"><span>5</span></div>
+                <div class="button"><span>6</span></div>
+                <div class="button grey-button border"><span><svg width="61" height="61" viewBox="0 0 61 61" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M45.5696 15.788L15.7179 45.6397M15.7179 15.788L45.5696 45.6397" stroke="#E5DEDB"
+                                stroke-width="4.97528" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </span></div>
+                <div class="button grey-button border"><svg width="60" height="61" viewBox="0 0 60 61" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12.606 28.2262H47.4329V33.2015H12.606V28.2262ZM30.0244 10.8127C28.7049 10.8114 27.4389 11.3343 26.5049 12.2665C25.5709 13.1986 25.0455 14.4635 25.0442 15.7831C25.0428 17.1026 25.5657 18.3686 26.4979 19.3026C27.43 20.2365 28.6949 20.762 30.0145 20.7633C31.334 20.7646 32.6 20.2417 33.534 19.3096C34.4679 18.3775 34.9934 17.1125 34.9947 15.793C34.996 14.4735 34.4731 13.2075 33.541 12.2735C32.6089 11.3395 31.3439 10.8141 30.0244 10.8127ZM30.0244 40.6644C28.7049 40.6631 27.4389 41.186 26.5049 42.1181C25.5709 43.0502 25.0455 44.3152 25.0442 45.6347C25.0428 46.9542 25.5657 48.2203 26.4979 49.1542C27.43 50.0882 28.6949 50.6137 30.0145 50.615C31.334 50.6163 32.6 50.0934 33.534 49.1613C34.4679 48.2292 34.9934 46.9642 34.9947 45.6447C34.996 44.3251 34.4731 43.0591 33.541 42.1252C32.6089 41.1912 31.3439 40.6657 30.0244 40.6644Z"
+                            fill="#E5DEDB" />
+                    </svg>
+                </div>
+                <div class="button"><span>1</span></div>
+                <div class="button"><span>2</span></div>
+                <div class="button"><span>3</span></div>
+                <div class="button grey-button border grid-span"><span>+</span></div>
+                <div class="button grey-button border"><span><svg width="60" height="61" viewBox="0 0 60 61" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M47.4329 33.2837H12.606V28.3084H47.4329V33.2837Z" fill="#E5DEDB" />
+                        </svg>
+                    </span></div>
+                <div class="button wider-button"><span>0</span></div>
+                <div class="button"><span>00</span></div>
+                <div class="button"><span>.</span></div>
+                <div class="button grey-button border"><span><svg width="60" height="61" viewBox="0 0 60 61" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M47.4329 25.3955H12.606V20.4202H47.4329V25.3955ZM47.4329 40.3213H12.606V35.3461H47.4329V40.3213Z"
+                                fill="#E5DEDB" />
+                        </svg>
+                    </span></div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
