@@ -68,7 +68,7 @@ body {
     text-align: right;
     margin-right: 15px;
     transform: scaleY(1.9);
-
+    overflow: hidden;
 }
 
 .middle-plate {
@@ -111,8 +111,14 @@ body {
     line-height: 140%;
     font-family: 'Noto Sans Math';
     text-align: center;
+    cursor: pointer;
 }
-
+.button:hover {
+    border: solid 3px #e4860c;
+}
+.button:active{
+    background-color: #75726e;
+}
 .wide-button {
     width: 75px;
     height: 46px;
