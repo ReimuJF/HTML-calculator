@@ -118,6 +118,8 @@ body {
 }
 .button:active{
     background-color: #75726e;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 .wide-button {
     width: 75px;
