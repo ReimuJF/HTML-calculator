@@ -112,15 +112,17 @@ body {
     font-family: 'Noto Sans Math';
     text-align: center;
     cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
 .button:hover {
     border: solid 3px #e4860c;
 }
-.button:active{
+
+.button:active {
     background-color: #75726e;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
+
 .wide-button {
     width: 75px;
     height: 46px;
@@ -148,18 +150,22 @@ body {
     width: 85px;
     margin-right: 25px;
 }
+
 .margin-top {
     margin-top: 7px;
 }
+
 .margin-bottom {
     margin-bottom: 12px;
 }
-.grid-span{
+
+.grid-span {
     grid-row: span 2;
     width: 74px;
     height: 148px;
     line-height: 250%;
 }
+
 @media screen and (max-width: 500px) {
     .calculator {
         margin: auto;
@@ -188,10 +194,12 @@ body {
         gap: 6px;
         justify-items: stretch;
     }
+
     .wider-button {
         width: 65px;
     }
-    .grid-span{
+
+    .grid-span {
         width: 65px;
         height: 135px;
     }
@@ -204,7 +212,8 @@ body {
         height: auto;
         border-radius: 0;
     }
-    .button-plate{
+
+    .button-plate {
         height: 350px;
     }
 
@@ -256,7 +265,8 @@ body {
         right: 20%;
         bottom: 20%
     }
-    .grid-span{
+
+    .grid-span {
         height: 115px;
     }
 }
