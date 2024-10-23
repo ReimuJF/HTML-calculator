@@ -7,13 +7,15 @@
     let tempRes;
     let lastOperation = "+0";
 
-    window.addEventListener ("load", () => {
+    window.addEventListener("load", () => {
         document.querySelectorAll(".button").forEach(
             (button) => button.onclick =
                 () => webKeyHandler(button.getAttribute('key'))
         )
     }
     );
+    document.body.addEventListener('keypress', (key) => webKeyHandler(key.key))
+    document.body.addEventListener("keydown", (key) => { key.key === 'Delete' || key.key === "Backspace" ? webKeyHandler(key.key) : () => '' });
 
     const clearScreen = () => {
         screenText.innerText = DEFAULT;
@@ -41,7 +43,7 @@
         opFlag = true;
         calculate();
     }
-    
+
     const calculate = () => {
         let operation = tempRes || lastOperation
         let operator = operation[0];
@@ -129,10 +131,11 @@
     const memoryReturn = () => screenText.innerText = memoryVar;
 
     const keyMap = {
-        clear: clearScreen,
-        clearEnd: clearScreenEnd,
+        "Delete": clearScreen,
+        'Backspace': clearScreenEnd,
         "root": root,
         "res": res,
+        "Enter": res,
         memClear: memoryClear,
         memRet: memoryReturn,
         memPlus: memoryAdd,
@@ -146,7 +149,7 @@
         else if (!!keyMap[key]) {
             keyMap[key]();
         }
-        else {
+        else if (/[0-9]/.test(key)) {
             addDigit(key);
         }
     }
