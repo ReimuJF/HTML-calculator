@@ -10,7 +10,7 @@
         constructor() {
             this.screenTextSelector = document.querySelector(".screen-text");
         }
-        
+
         get screenValue() { return this.screenTextSelector.innerText };
         get screenNumber() { return +this.screenValue };
         set screenValue(value) { this.screenTextSelector.innerText = value };
@@ -22,7 +22,11 @@
             this.lastOperation = "+0";
         }
 
-        clearScreenEnd = () => this.screenValue = this.screenValue.length > 1 ? this.screenValue.slice(0, -1) : this.DEFAULT;
+        clearScreenEnd = () => {
+            if (this.opFlag) this.clearScreen();
+            this.screenValue = this.screenValue.length > 1 ? this.screenValue.slice(0, -1) : this.DEFAULT
+        };
+
         FormatBigNumber = (num) => Math.abs(num) > 10 ** 12 ? num.toExponential(7) : num;
         trunc = (num) => !(num % 1) ? num : +num.toFixed(5);
 
@@ -102,6 +106,7 @@
             }
             let result = Math.sqrt(this.screenNumber);
             this.screenValue = this.trunc(result);
+            this.opFlag = true;
         }
 
         addDot = () => {
