@@ -34,7 +34,7 @@ body {
     min-height: 669px;
     height: 781px;
     background-color: #000;
-    margin: 90px 150px 0 175px;
+    margin: 90px 0 0 175px;
     border-radius: 13px;
     border: none;
 }
@@ -187,6 +187,10 @@ body {
         margin: auto;
     }
 
+    .middle-plate .button {
+        margin-right: 20px;
+    }
+
     .button-plate {
         width: 100%;
         margin: auto;
@@ -226,6 +230,9 @@ body {
         width: 100%;
     }
 
+    .middle-plate .button {
+        margin: 11px;
+    }
     .button {
         width: 55px;
         height: 55px;
@@ -273,8 +280,9 @@ body {
     .grid-span {
         height: 115px;
     }
+
     #sign {
-      right: 5%;
-      bottom: 10%  
+        right: 5%;
+        bottom: 10%
     }
 }

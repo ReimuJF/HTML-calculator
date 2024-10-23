@@ -1,6 +1,5 @@
 {
     class Calculator {
-        screenTextSelector;
         DEFAULT = '0';
         opFlag = false;
         memoryVar = 0;
@@ -11,26 +10,23 @@
             this.screenTextSelector = document.querySelector(".screen-text");
         }
 
-        get screenValue() { return this.screenTextSelector.innerText };
+        get screenValue() {
+            return this.screenTextSelector.innerText
+        };
         get screenNumber() { return +this.screenValue };
         set screenValue(value) { this.screenTextSelector.innerText = value };
-        addToEnd = (value) => this.screenTextSelector.innerText += value;
-
-        clearScreen = () => {
-            this.screenValue = this.DEFAULT;
-            this.tempRes = undefined;
-            this.lastOperation = "+0";
-        }
-
-        clearScreenEnd = () => {
-            if (this.opFlag) this.clearScreen();
-            this.screenValue = this.screenValue.length > 1 ? this.screenValue.slice(0, -1) : this.DEFAULT
+        addToEnd(value) {
+            this.screenTextSelector.innerText += value;
         };
 
-        FormatBigNumber = (num) => Math.abs(num) > 10 ** 12 ? num.toExponential(7) : num;
-        trunc = (num) => !(num % 1) ? num : +num.toFixed(5);
+        FormatBigNumber(num) {
+            return Math.abs(num) > 10 ** 12 ? num.toExponential(7) : num;
+        };
+        trunc(num) {
+            return !(num % 1) ? num : +num.toFixed(5);
+        };
 
-        arithmeticOp = (operator) => {
+        arithmeticOp(operator) {
             if (this.tempRes === undefined) {
                 this.tempRes = `${operator}${this.screenValue}`;
             } else {
@@ -40,12 +36,13 @@
             this.opFlag = true;
         }
 
-        res = () => {
-            this.opFlag = true;
-            this.calculate();
+        errorHandle() {
+            this.screenValue = 'ERROR';
+            this.tempRes = undefined;
+            return;
         }
 
-        calculate = () => {
+        calculate() {
             let operation = this.tempRes || this.lastOperation
             let operator = operation[0];
             let tempNumber = +operation.slice(1,);
@@ -68,8 +65,7 @@
                     break;
                 case '/':
                     if (currentNumber === 0) {
-                        this.screenValue = 'ERROR';
-                        this.tempRes = undefined;
+                        this.errorHandle();
                         return;
                     }
                     if (this.tempRes) {
@@ -82,8 +78,7 @@
                     break;
                 case '%':
                     if (currentNumber === 0) {
-                        this.screenValue = 'ERROR';
-                        this.tempRes = undefined;
+                        this.errorHandle()
                         return;
                     }
                     if (this.tempRes) {
@@ -99,9 +94,38 @@
             this.screenValue = this.FormatBigNumber(this.trunc(result));
         }
 
+        addDigit(key) {
+            if (this.screenValue === '0') {
+                this.screenValue = "";
+            }
+            if (!this.opFlag) {
+                this.addToEnd(this.screenValue.length <= 11 ? key : '');
+            }
+            else {
+                this.screenValue = key;
+                this.opFlag = false;
+            }
+        }
+
+        clearScreen = () => {
+            this.screenValue = this.DEFAULT;
+            this.tempRes = undefined;
+            this.lastOperation = "+0";
+        }
+
+        clearScreenEnd = () => {
+            if (this.opFlag) this.clearScreen();
+            this.screenValue = this.screenValue.length > 1 ? this.screenValue.slice(0, -1) : this.DEFAULT
+        };
+
+        res = () => {
+            this.opFlag = true;
+            this.calculate();
+        }
+
         root = () => {
             if (this.screenValue[0] === '-') {
-                this.screenValue = 'ERROR';
+                this.errorHandle();
                 return;
             }
             let result = Math.sqrt(this.screenNumber);
@@ -120,39 +144,38 @@
             }
         }
 
-        addDigit = key => {
-            if (this.screenValue === '0') {
-                this.screenValue = "";
-            }
-            if (!this.opFlag) {
-                this.addToEnd(this.screenValue.length <= 11 ? key : '');
-            }
-            else {
-                this.screenValue = key;
-                this.opFlag = false;
-            }
-        }
-        changeSign = () => this.screenValue = this.screenNumber * -1;
-        memoryAdd = () => this.memoryVar += this.screenNumber;
-        memorySub = () => this.memoryVar -= this.screenNumber;
-        memoryClear = () => this.memoryVar = 0;
-        memoryReturn = () => this.screenValue = this.memoryVar;
+        changeSign = () => {
+            this.screenValue = this.screenNumber * -1;
+        };
+        memoryAdd = () => {
+            this.memoryVar += this.screenNumber;
+        };
+        memorySub = () => {
+            this.memoryVar -= this.screenNumber;
+        };
+        memoryClear = () => {
+            this.memoryVar = 0;
+        };
+        memoryReturn = () => {
+            this.screenValue = this.memoryVar;
+        };
 
         keyMap = {
             "Delete": this.clearScreen,
             'Backspace': this.clearScreenEnd,
-            "root": this.root,
             "res": this.res,
             "Enter": this.res,
+            "root": this.root,
+            '.': this.addDot,
             "sign": this.changeSign,
             memClear: this.memoryClear,
             memRet: this.memoryReturn,
             memPlus: this.memoryAdd,
             memMinus: this.memorySub,
-            '.': this.addDot,
+
         }
 
-        webKeyHandler = key => {
+        webKeyHandler(key) {
             if (this.screenValue === "ERROR") this.clearScreen();
             if ("+-*/%".includes(key)) this.arithmeticOp(key)
             else if (this.keyMap[key]) {
