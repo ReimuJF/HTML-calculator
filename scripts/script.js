@@ -23,7 +23,7 @@
         }
 
         clearScreenEnd = () => this.screenValue = this.screenValue.length > 1 ? this.screenValue.slice(0, -1) : this.DEFAULT;
-        FormatBigNumber = (num) => num > 10 ** 12 ? num.toExponential(7) : num;
+        FormatBigNumber = (num) => Math.abs(num) > 10 ** 12 ? num.toExponential(7) : num;
         trunc = (num) => !(num % 1) ? num : +num.toFixed(5);
 
         arithmeticOp = (operator) => {
@@ -127,7 +127,7 @@
                 this.opFlag = false;
             }
         }
-
+        changeSign = () => this.screenValue = this.screenNumber * -1;
         memoryAdd = () => this.memoryVar += this.screenNumber;
         memorySub = () => this.memoryVar -= this.screenNumber;
         memoryClear = () => this.memoryVar = 0;
@@ -139,6 +139,7 @@
             "root": this.root,
             "res": this.res,
             "Enter": this.res,
+            "sign": this.changeSign,
             memClear: this.memoryClear,
             memRet: this.memoryReturn,
             memPlus: this.memoryAdd,

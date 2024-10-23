@@ -34,7 +34,7 @@ body {
     min-height: 669px;
     height: 781px;
     background-color: #000;
-    margin: 90px 0 0 175px;
+    margin: 90px 150px 0 175px;
     border-radius: 13px;
     border: none;
 }
@@ -272,5 +272,9 @@ body {
 
     .grid-span {
         height: 115px;
+    }
+    #sign {
+      right: 5%;
+      bottom: 10%  
     }
 }
