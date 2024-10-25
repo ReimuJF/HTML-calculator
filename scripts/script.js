@@ -141,6 +141,10 @@
             this.opFlag = true;
         }
 
+        countPercent = () => {
+            this.screenValue = this.trunc(this.tempRes.value * (this.screenNumber / 100));
+        }
+
         addDot = () => {
             if (this.screenValue.includes('.') && !this.opFlag) return;
             if (this.opFlag) {
@@ -174,6 +178,7 @@
             "res": this.res,
             "Enter": this.res,
             "root": this.root,
+            '%': this.countPercent,
             '.': this.addDot,
             "sign": this.changeSign,
             memClear: this.memoryClear,
@@ -185,7 +190,7 @@
 
         webKeyHandler(key) {
             if (this.screenValue === "ERROR") this.clearScreen();
-            if ("+-*/%".includes(key)) this.arithmeticOp(key)
+            if ("+-*/".includes(key)) this.arithmeticOp(key)
             else if (this.keyMap[key]) {
                 this.keyMap[key]();
             }
