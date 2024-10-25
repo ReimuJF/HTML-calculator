@@ -4,7 +4,10 @@
         opFlag = false;
         memoryVar = 0;
         tempRes;
-        lastOperation = "+0";
+        lastOperation = {
+            operator: '+',
+            value: 0
+        };
 
         constructor() {
             this.screenTextSelector = document.querySelector(".screen-text");
@@ -13,8 +16,12 @@
         get screenValue() {
             return this.screenTextSelector.innerText
         };
-        get screenNumber() { return +this.screenValue };
-        set screenValue(value) { this.screenTextSelector.innerText = value };
+        get screenNumber() {
+            return +this.screenValue
+        };
+        set screenValue(value) {
+            this.screenTextSelector.innerText = value
+        };
         addToEnd(value) {
             this.screenTextSelector.innerText += value;
         };
@@ -27,12 +34,13 @@
         };
 
         arithmeticOp(operator) {
-            if (this.tempRes === undefined) {
-                this.tempRes = `${operator}${this.screenValue}`;
-            } else {
+            if (this.tempRes !== undefined) {
                 this.calculate();
-                this.tempRes = `${operator}${this.screenValue}`;
             }
+            this.tempRes = {
+                operator: operator,
+                value: this.screenNumber
+            };
             this.opFlag = true;
         }
 
@@ -44,8 +52,8 @@
 
         calculate() {
             let operation = this.tempRes || this.lastOperation
-            let operator = operation[0];
-            let tempNumber = +operation.slice(1,);
+            let operator = operation.operator;
+            let tempNumber = operation.value;
             let currentNumber = this.screenNumber;
             let result = 0;
             switch (operator) {
@@ -88,7 +96,7 @@
                     break;
             }
             if (this.tempRes) {
-                this.lastOperation = operator + currentNumber;
+                [this.lastOperation.operator, this.lastOperation.value] = [operator, currentNumber];
                 this.tempRes = undefined;
             }
             this.screenValue = this.FormatBigNumber(this.trunc(result));
@@ -96,7 +104,7 @@
 
         addDigit(key) {
             if (this.screenValue === '0') {
-                this.screenValue = "";
+                this.screenValue = '';
             }
             if (!this.opFlag) {
                 this.addToEnd(this.screenValue.length <= 11 ? key : '');
@@ -110,7 +118,7 @@
         clearScreen = () => {
             this.screenValue = this.DEFAULT;
             this.tempRes = undefined;
-            this.lastOperation = "+0";
+            [this.lastOperation.operator, this.lastOperation.value] = ['+', 0];
         }
 
         clearScreenEnd = () => {
