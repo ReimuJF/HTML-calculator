@@ -210,11 +210,9 @@
     }
     );
 
-    document.body.addEventListener('keypress', (key) => calculator.webKeyHandler(key.key));
+222
     document.body.addEventListener("keydown", (key) => {
-        if (key.key === 'Delete' || key.key === "Backspace")
             calculator.webKeyHandler(key.key);
     });
-
-
+9
 }
